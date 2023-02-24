@@ -1,4 +1,5 @@
-﻿using System;
+﻿using site_crawler_auditor.UIComponents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,18 @@ namespace site_crawler_auditor
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        internal URLTextBox urlTextBox;
+
         public MainWindow()
         {
             InitializeComponent();
+            LoadElementsIntoComponents();
+        }
+
+        private void LoadElementsIntoComponents()
+        {
+            urlTextBox = new URLTextBox((TextBox)this.FindName("URLTextBox"));
         }
     }
 }
