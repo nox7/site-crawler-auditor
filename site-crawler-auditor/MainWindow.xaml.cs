@@ -22,7 +22,7 @@ namespace site_crawler_auditor
     public partial class MainWindow : Window
     {
 
-        internal URLTextBox urlTextBox;
+        internal URLTextBox? urlTextBox;
 
         public MainWindow()
         {
