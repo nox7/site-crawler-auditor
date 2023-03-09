@@ -23,6 +23,7 @@ namespace site_crawler_auditor
     {
 
         internal URLTextBox? urlTextBox;
+        internal CrawlButton? crawlButton;
 
         public MainWindow()
         {
@@ -33,6 +34,7 @@ namespace site_crawler_auditor
         private void LoadElementsIntoComponents()
         {
             urlTextBox = new URLTextBox((TextBox)this.FindName("URLTextBox"));
+            crawlButton = new CrawlButton((Button)this.FindName("CrawlButton"));
         }
     }
 }
