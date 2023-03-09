@@ -1,2 +1,2 @@
-# site-crawler-auditer
-A C#, .NET, MVC web application to crawl and audit Footbridge Media websites
+# Site Crawler & Content Auditor
+A desktop C# (.NET 6 / WPF UI) application to crawl and audit Footbridge Media websites.
