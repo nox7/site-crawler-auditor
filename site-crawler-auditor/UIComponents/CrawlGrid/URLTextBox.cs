@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace site_crawler_auditor.UIComponents
+namespace site_crawler_auditor.UIComponents.CrawlGrid
 {
     internal class URLTextBox
     {

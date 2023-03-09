@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace site_crawler_auditor.UIComponents
+namespace site_crawler_auditor.UIComponents.CrawlGrid
 {
     internal class CrawlButton
     {
@@ -22,7 +22,8 @@ namespace site_crawler_auditor.UIComponents
 
         public void onClick(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Button clicked");
+            MainWindow.GetInstance()!.GetCrawlGrid().element.Visibility = Visibility.Collapsed;
+            MainWindow.GetInstance()!.GetCrawlProgressGrid().element.Visibility = Visibility.Visible;
         }
     }
 }
