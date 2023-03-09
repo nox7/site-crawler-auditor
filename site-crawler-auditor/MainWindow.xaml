@@ -27,7 +27,7 @@
                     <RowDefinition Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <TextBox x:Name="URLTextBox" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Text="Enter a website URL" Padding="10,10,10,10" FontSize="14"  />
-                <Button Grid.Row="0" Grid.Column="1" Content="Crawl" Margin="20,0,0,0" Padding="20,1,20,1" Background="#FF087DFF" Foreground="White"/>
+                <Button x:Name="CrawlButton" Grid.Row="0" Grid.Column="1" Content="Crawl" Margin="20,0,0,0" Padding="20,1,20,1" Background="#FF087DFF" Foreground="White"/>
             </Grid>
         </Grid>
         <TabControl x:Name="CrawledDataTabControl" Visibility="Collapsed">
