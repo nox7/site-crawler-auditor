@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -21,14 +22,14 @@ namespace site_crawler_auditor.WebCrawler
          */
         public static List<string> CompileListOfDirectories(Uri pageUri)
         {
-            string uriAsString = pageUri.ToString();
-            Regex domainRegex = new Regex(@"^https?:\/\/([^\/]+)\/?");
-            Match domainMatch = domainRegex.Match(uriAsString);
-            string protocolWithDomain = domainMatch.Value;
+            string uriPath = pageUri.AbsolutePath;
 
-            // Remove the protocol and host from the uri, leaving just the path
-            string relativeUriAsString = uriAsString.Replace(protocolWithDomain, string.Empty);
-            List<string> directories = relativeUriAsString.Split("/").ToList();
+            List<string> directories = uriPath.Split("/").ToList();
+
+            // Remove the first and last list items.
+            // The first item is just when "/" is split (blank) and the last item should never be considered
+            // As it is either a blank "/" or a file name/accessor.
+            directories.RemoveAt(0);
             directories.RemoveAt(directories.Count - 1);
 
             return directories;
