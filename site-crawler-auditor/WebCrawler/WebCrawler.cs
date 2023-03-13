@@ -32,7 +32,9 @@ namespace site_crawler_auditor.WebCrawler
          */
         public async Task<CrawlResult> CrawlSite()
         {
+            CrawlResult result = new();
 
+            return result;
         }
 
         public async Task<CrawledPage> CrawlPage(Uri pageUri)
