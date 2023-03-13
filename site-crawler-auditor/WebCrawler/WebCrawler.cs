@@ -40,6 +40,11 @@ namespace site_crawler_auditor.WebCrawler
             using HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, pageUri);
             using HttpResponseMessage response = await this.httpClient.SendAsync(request);
 
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+            CrawledPage crawledPage = new CrawledPage(pageUri, responseBody);
+
+            return crawledPage;
         }
         
     }
