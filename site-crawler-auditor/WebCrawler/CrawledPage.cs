@@ -51,9 +51,28 @@ namespace site_crawler_auditor.WebCrawler
          * Processes a list of anchor hrefs from CompileListOfHrefsOnPage. Relative hrefs will become absolute links
          * and all will be processed into Uri objects.
          */
-        public List<string> ProcessUnsafeListOfHrefsToUris()
+        public List<string> ProcessUnsafeListOfHrefsToUris(List<string> listOfHrefs)
         {
-
+            foreach (string href in listOfHrefs)
+            {
+                if (href.StartsWith("/"))
+                {
+                    // Relative URL
+                }
+                else if (href.StartsWith("http://") || href.StartsWith("https://"))
+                {
+                    // Absolute URL
+                }
+                else if (href.StartsWith("tel:") || href.StartsWith("sms://") || href.StartsWith("mailto:"))
+                {
+                    // TODO, adjust this condition to more of "If starts with a protocol that is not Http protocol
+                }
+                else
+                {
+                    // Relative URL but doesn't start from web root. Must parse the directory of the current page
+                    // and use it to determine the full URL of this HREF
+                }
+            }
         }
     }
 }
