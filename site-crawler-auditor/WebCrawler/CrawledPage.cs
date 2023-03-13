@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 
 namespace site_crawler_auditor.WebCrawler
 {
@@ -51,8 +52,9 @@ namespace site_crawler_auditor.WebCrawler
          * Processes a list of anchor hrefs from CompileListOfHrefsOnPage. Relative hrefs will become absolute links
          * and all will be processed into Uri objects.
          */
-        public List<string> ProcessUnsafeListOfHrefsToUris(List<string> listOfHrefs)
+        public List<Uri> ProcessUnsafeListOfHrefsToUris(List<string> listOfHrefs)
         {
+            List<Uri> uris = new();
             foreach (string href in listOfHrefs)
             {
                 if (href.StartsWith("/"))
@@ -65,7 +67,7 @@ namespace site_crawler_auditor.WebCrawler
                 }
                 else if (href.StartsWith("tel:") || href.StartsWith("sms://") || href.StartsWith("mailto:"))
                 {
-                    // TODO, adjust this condition to more of "If starts with a protocol that is not Http protocol
+                    // TODO, adjust this condition to more of "If starts with a protocol that is not Http protocol" with external method
                 }
                 else
                 {
@@ -73,6 +75,9 @@ namespace site_crawler_auditor.WebCrawler
                     // and use it to determine the full URL of this HREF
                 }
             }
+
+            return uris;
         }
+
     }
 }
