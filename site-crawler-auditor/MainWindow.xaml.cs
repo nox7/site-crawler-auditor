@@ -39,8 +39,8 @@ namespace site_crawler_auditor
         public MainWindow()
         {
             InitializeComponent();
-            LoadElementsIntoComponents();
-            MainWindow.Instance = this;
+            /*LoadElementsIntoComponents();
+            MainWindow.Instance = this;*/
         }
 
         private void LoadElementsIntoComponents()
